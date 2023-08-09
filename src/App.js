@@ -46,7 +46,7 @@ function App() {
       setActiveFilter(value);
     }
   };
-  console.log(hotelData);
+  console.log(activeFilter);
   return (
     <>
       <div className="max-w-[1024px] xl:max-w-[1100px] xxl:max-w-[1440px] xxl:px-[17rem] mx-auto">
@@ -57,6 +57,11 @@ function App() {
               <button
                 onClick={() => handleClick(buttons.value)}
                 key={Math.random()}
+                className={`flex flex-col justify-center items-center px-2 py-3 rounded-sm ${
+                  activeFilter === buttons.value
+                    ? "bg-[#4E90A8] text-white "
+                    : ""
+                }`}
               >
                 <div className="flex flex-col justify-center items-center">
                   <img className="w-6 h-6 mr-2" src={buttons.iconUrl} alt="" />
