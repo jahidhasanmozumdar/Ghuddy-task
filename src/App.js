@@ -43,6 +43,7 @@ function App() {
       setActiveFilter(value);
     }
   };
+  console.log(hotelData);
   return (
     <>
       <div>
@@ -62,7 +63,12 @@ function App() {
             ))}
           </div>
         </div>
-        <div className="property-list"></div>
+        <div className="property-list">
+          <h1>Top Destination</h1>
+          {hotelData?.map((hotels) => (
+            <Card hotels={hotels}></Card>
+          ))}
+        </div>
       </div>
     </>
   );
