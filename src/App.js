@@ -1,6 +1,9 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import Card from "./component/Card/Card";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+
 function App() {
   // Icon button fetch
   const [buttonValue, setButtonValue] = useState([]);
@@ -95,10 +98,22 @@ function App() {
               ></path>
             </svg>
           </span>
-          <div className="grid grid-cols-3 gap-[16px]">
-            {hotelData?.map((hotels) => (
-              <Card hotels={hotels}></Card>
-            ))}
+          <div>
+            <Swiper
+              spaceBetween={2}
+              slidesPerView={1}
+              navigation
+              loop={true}
+              className="w-full overflow-hidden my-swiper"
+            >
+              {hotelData.map((hotels) => (
+                <SwiperSlide key={hotels.id}>
+                  <div className="w-[30px] h-auto p-4  rounded-md ">
+                    <Card hotels={hotels} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
       </div>
