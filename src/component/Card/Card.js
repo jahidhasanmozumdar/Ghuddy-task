@@ -2,61 +2,36 @@ import React from "react";
 
 const Card = (props) => {
   // console.log(props.hotels.property_name);
-  const { property_name, thumb_image } = props.hotels;
+  const {
+    property_name,
+    thumb_image,
+    short_address,
+    black_price,
+    red_price,
+    property_tag,
+    class_rating,
+  } = props.hotels;
   console.log(property_name);
   return (
-    <div className="relative mx-auto w-full max-w-sm pt-6">
-      <div>
-        <section
-          href="#"
-          className="relative inline-block w-full transform transition-transform duration-300 ease-in-out"
-        >
-          <div className="rounded-lg">
-            <div className="relative flex h-60 justify-center overflow-hidden rounded-lg">
-              <div className="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                <img src={thumb_image} alt="" />
-              </div>
-              <span className="absolute left-0 top-0 z-10 ml-3 mt-3 inline-flex select-none rounded-lg bg-red-500 px-3 py-2 text-sm font-medium text-white">
-                {" "}
-                Featured{" "}
-              </span>
-            </div>
-
-            <div className="">
-              <div className="mt-4 grid grid-cols-2">
-                <div className="flex items-center">
-                  <div className="relative">
-                    <h2
-                      className="line-clamp-1 text-base font-medium text-gray-800 md:text-lg"
-                      title="New York"
-                    >
-                      {property_name}
-                    </h2>
-                    <p
-                      className="mt-2 line-clamp-1 text-sm text-gray-800"
-                      title="New York, NY 10004, United States"
-                    >
-                      New York, NY 10004, United States
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center justify-end">
-                  <p className="text-primary inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-                    <span className="text-sm uppercase"> $ </span>
-                    <span className="text-lg">3,200</span>/m
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-2 border-t border-gray-200 pt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                laboriosam labore obcaecati hic fugit exercitationem ad
-                blanditiis inventore excepturi cumque!
-              </div>
+    <div className="mt-[8px]">
+      <div class="shadow rounded-[1.1rem] bg-white h-[25rem] xxl:h-[41rem] w-[18rem] xxl:w-[22rem] hover:border-[#4E90A8] hover:shadow-xl">
+        <div class="flex justify-center relative overflow-hidden w-[18rem] xxl:w-full h-[15rem] xxl:h-[17.3rem]">
+          <img src={thumb_image} alt="" className="rounded-md"/>
+          <span class="absolute top-0 left-0 inline-flex mt-3 ml-3 px-3 py-2 rounded-lg z-10 bg-red-500 text-sm font-medium text-white select-none">
+            Featured
+          </span>
+        </div>
+        <div class="mt-4 px[2px] py-[5px]">
+          <div>
+            <h2 class="font-medium text-base md:text-lg text-gray-800">
+              {property_name}
+            </h2>
+            <div>
+              <span>{class_rating}</span>
             </div>
           </div>
-        </section>
+          <p class="mt-2 text-sm text-gray-800 line-clamp-1">{short_address}</p>
+        </div>
       </div>
     </div>
   );

@@ -46,8 +46,8 @@ function App() {
   console.log(hotelData);
   return (
     <>
-      <div>
-        <h1 className="text-3xl font-bold lg:ml-[150px] ">Tours</h1>
+      <div className="max-w-[1024px] xl:max-w-[1100px] xxl:max-w-[1440px] xxl:px-[17rem] mx-auto">
+        <h1 className="text-3xl font-bold">Tours</h1>
         <div className="flex flex-row justify-center items-center mt-[50px] ">
           <div className="flex justify-center items-center gap-[50px]">
             {buttonValue?.map((buttons) => (
@@ -63,11 +63,43 @@ function App() {
             ))}
           </div>
         </div>
-        <div className="property-list">
-          <h1>Top Destination</h1>
-          {hotelData?.map((hotels) => (
-            <Card hotels={hotels}></Card>
-          ))}
+        <div>
+          <h1 className="text-3xl">Top destination</h1>
+          <span class=" flex justify-between pb-[8px] ml-[1rem] mt-6">
+            <svg
+              id="sliderButtonPrev"
+              class="cursor-pointer swiper-button-disabled"
+              width="30"
+              height="6"
+              viewBox="0 0 30 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M29 3.5C29.2761 3.5 29.5 3.27614 29.5 3C29.5 2.72386 29.2761 2.5 29 2.5L29 3.5ZM0 3L5 5.88675L5 0.113251L0 3ZM29 2.5L4.5 2.5L4.5 3.5L29 3.5L29 2.5Z"
+                fill="#868686"
+              ></path>
+            </svg>
+            <svg
+              id="sliderButtonNext"
+              class="cursor-pointer"
+              width="30"
+              height="6"
+              viewBox="0 0 30 6"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1 2.5C0.723858 2.5 0.5 2.72386 0.5 3C0.5 3.27614 0.723858 3.5 1 3.5V2.5ZM30 3L25 0.113249V5.88675L30 3ZM1 3.5H25.5V2.5H1V3.5Z"
+                fill="#4E90A8"
+              ></path>
+            </svg>
+          </span>
+          <div className="grid grid-cols-3 gap-[16px]">
+            {hotelData?.map((hotels) => (
+              <Card hotels={hotels}></Card>
+            ))}
+          </div>
         </div>
       </div>
     </>
