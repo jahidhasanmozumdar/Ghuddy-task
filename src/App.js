@@ -49,16 +49,15 @@ function App() {
 
   return (
     <>
-      <div className="max-w-[1024px] xl:max-w-[1100px] xxl:max-w-[1440px] xxl:px-[17rem] mx-auto">
+      <div className="max-w-full md:max-w-[743px] xl:max-w-[1440px] mx-auto pl-[16px] md:pl-[16px] lg:pl-[16px] xl:pl-[170px]">
         <h1 className="text-[32px] font-medium">Tours</h1>
-        <div className="flex flex-row justify-start items-center mt-[16px] mb-[16px] ">
-          <div className="flex justify-center items-center gap-[24px] min-h-[62px]">
+        <div className="flex flex- justify-start items-center mt-[16px] mb-[16px] ">
+          <div className="flex flex-nowrap  items-center overflow-x-scroll scroll-control w-full mr-[-80px]   pr-[16px] xl:pr-[170px]">
             {buttonValue?.map((buttons) => (
               <button
-                onClick={() => handleClick(buttons.value)}
-                key={Math.random()}
-                className={`flex flex-col justify-center items-center px-2 py-3 rounded-sm ${
-                  activeFilter === buttons.value
+                onClick={() => handleClick(buttons?.value)}
+                className={`flex flex-col justify-center items-center px-[6px] py-[10px] rounded-sm ${
+                  activeFilter === buttons?.value
                     ? "bg-[#4E90A8] text-white "
                     : ""
                 }`}
@@ -75,7 +74,7 @@ function App() {
             ))}
           </div>
         </div>
-        <div className="">
+        <div>
           <div>
             <h1 className="text-3xl">Top destination</h1>
             <span className=" flex justify-between pb-[8px] mt-[16px] mb-[16px]">
@@ -111,17 +110,32 @@ function App() {
           </div>
           <div>
             <Swiper
-              spaceBetween={2}
-              slidesPerView={3.5}
-              navigation
-              loop={true}
-              className="w-full overflow-hidden my-swiper"
+              breakpoints={{
+                343: {
+                  slidesPerView: 1.2,
+                  navigationLoop: true,
+                  className: "swiper-slide",
+                },
+                768: {
+                  slidesPerView: 2.5,
+                  navigationLoop: true,
+                  className: "swiper-slide",
+                },
+                1024: {
+                  slidesPerView: 2.5,
+                  navigationLoop: true,
+                  className: "swiper-slide",
+                },
+                1280: {
+                  slidesPerView: 3.5,
+                  navigationLoop: true,
+                  className: "swiper-slide",
+                },
+              }}
             >
               {hotelData.map((hotels) => (
                 <SwiperSlide key={Math.random()}>
-                  <div className="w-[30px] h-auto p-4  rounded-md">
-                    <Card hotels={hotels} />
-                  </div>
+                  <Card hotels={hotels} />
                 </SwiperSlide>
               ))}
             </Swiper>
@@ -133,3 +147,9 @@ function App() {
 }
 
 export default App;
+
+// spaceBetween={2}
+// slidesPerView={3.5}
+// navigation
+// loop={true}
+// className="w-full overflow-hidden my-swiper"
